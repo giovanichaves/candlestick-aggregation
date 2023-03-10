@@ -1,3 +1,4 @@
+
 import org.http4k.core.Method
 import org.http4k.core.Request
 import org.http4k.core.Response
@@ -12,10 +13,7 @@ class Server(
   port: Int = 9000,
 ) {
 
-  // TODO - invoke your implementation here
-  lateinit var  service : CandlestickManager
-
-
+  private val candlestickManager : CandlestickManager = CandlestickManagerService()
   private val routes = routes(
     "candlesticks" bind Method.GET to { getCandlesticks(it) }
   )
@@ -30,7 +28,7 @@ class Server(
     val isin = req.query("isin")
       ?: return Response(Status.BAD_REQUEST).body("{'reason': 'missing_isin'}")
 
-    val body = jackson.writeValueAsBytes(service.getCandlesticks(isin))
+    val body = jackson.writeValueAsBytes(candlestickManager.getCandlesticks(isin))
 
     return Response(Status.OK).body(body.inputStream())
   }
