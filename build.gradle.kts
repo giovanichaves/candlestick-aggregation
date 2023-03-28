@@ -20,6 +20,9 @@ object DependencyVersions {
   const val jackson = "2.14.0"
   const val mockk = "1.13.2"
   const val logback = "1.2.11"
+  const val restassured = "5.3.0"
+  const val kotest = "5.5.5"
+  const val junit = "5.9.2"
 }
 
 dependencies {
@@ -38,6 +41,9 @@ dependencies {
   implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${DependencyVersions.jackson}")
   implementation("ch.qos.logback:logback-classic:${DependencyVersions.logback}")
   testImplementation("io.mockk:mockk:${DependencyVersions.mockk}")
+  testImplementation("org.junit.jupiter:junit-jupiter-params:${DependencyVersions.junit}")
+  testImplementation("io.rest-assured:kotlin-extensions:${DependencyVersions.restassured}")
+  testImplementation("io.kotest:kotest-runner-junit5:${DependencyVersions.kotest}")
 }
 
 tasks.test {
