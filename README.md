@@ -192,5 +192,3 @@ The following questions will give you a hint on what to think about for the code
 
 - How would you change the system to provide scaling capabilities to 50.000 (or more) available instruments, each streaming quotes between once per second and every few seconds?
 - How could this system be build in a way that supports failover capabilities so that multiple instances of the system could run simultaneously?
-
-
